@@ -1,7 +1,5 @@
 library easy_nav_drawer;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+// export gel nav drawer
+export 'src/gel_menu_item.dart';
+export 'src/gel_nav_drawer.dart';
