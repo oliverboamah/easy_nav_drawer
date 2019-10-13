@@ -1,8 +1,8 @@
 name: easy_nav_drawer
-description: A new Flutter package project.
+description: This Flutter package provides the easiest way to add beautiful and complete navigation drawers to your Flutter apps.
 version: 0.0.1
-author:
-homepage:
+author: Oliver Boamah
+homepage: https://github.com/codingoliver/easy_nav_drawer
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -10,7 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  shared_preferences: ^0.5.3+4
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
