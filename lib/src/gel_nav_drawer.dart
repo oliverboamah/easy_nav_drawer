@@ -35,7 +35,7 @@ class GelNavDrawer extends StatefulWidget {
       this.appNameColor = Colors.white,
       this.appSlogan,
       this.appSloganColor = Colors.white70,
-      this.appLogoAsset,
+      @required this.appLogoAsset,
       @required this.menuItems,
       this.menuItemColor = Colors.black54,
       this.selectedMenuItemColor = Colors.red,
