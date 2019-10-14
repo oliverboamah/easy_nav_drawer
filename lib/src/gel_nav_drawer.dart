@@ -31,9 +31,9 @@ class GelNavDrawer extends StatefulWidget {
   final selectedMenuItemKey = '@key:selectedMenuItem';
 
   GelNavDrawer(
-      {this.appName,
+      {this.appName = '',
       this.appNameColor = Colors.white,
-      this.appSlogan,
+      this.appSlogan = '',
       this.appSloganColor = Colors.white70,
       @required this.appLogoAsset,
       @required this.menuItems,
