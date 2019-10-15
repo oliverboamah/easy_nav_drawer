@@ -138,7 +138,7 @@ class _GelNavDrawerState extends State<GelNavDrawer> {
           ? this.widget.selectedMenuItemColor
           : this.widget.menuItemColor;
 
-      ListTile(
+      return ListTile(
         title:
             Text(menuItem.title, style: TextStyle(color: currentMenuItemColor)),
         leading: IconButton(
