@@ -1,11 +1,11 @@
 // flutter package imports
+import 'package:easy_nav_drawer/src/gel_menu_item.dart';
 import 'package:flutter/material.dart';
 
 // third party package imports
 import 'package:shared_preferences/shared_preferences.dart';
 
 // my package imports
-import 'package:easy_nav_drawer/src/gel_menu_item.dart';
 
 class GelNavDrawer extends StatefulWidget {
   final String appName;
@@ -46,7 +46,7 @@ class GelNavDrawer extends StatefulWidget {
       this.drawerHeaderBackgroundColor = Colors.red,
       this.drawerBodyBackgroundColor = Colors.white,
       this.dividerColor = Colors.grey,
-      this.onMenuItemClicked,
+      @required this.onMenuItemClicked,
       this.onSettingsIconClicked});
 
   @override
@@ -67,57 +67,62 @@ class _GelNavDrawerState extends State<GelNavDrawer> {
     return Container(
       margin: EdgeInsets.only(top: 24),
       child: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                color: this.widget.drawerHeaderBackgroundColor,
-              ),
-              padding: EdgeInsets.only(bottom: 16),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.close,
-                        color: Colors.white,
-                      ),
-                      onPressed: () => Navigator.of(context).pop(),
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      CircleAvatar(
-                        radius: 60,
-                        backgroundImage: AssetImage(this.widget.appLogoAsset),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0, bottom: 2),
-                        child: Text(
-                          this.widget.appName,
-                          style: TextStyle(
-                              color: this.widget.appNameColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
+        child: Container(
+          color: this.widget.drawerBodyBackgroundColor,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  color: this.widget.drawerHeaderBackgroundColor,
+                ),
+                padding: EdgeInsets.only(bottom: 16),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.close,
+                          color: Colors.white,
                         ),
+                        onPressed: () => Navigator.of(context).pop(),
                       ),
-                      Text(
-                        this.widget.appSlogan,
-                        style: TextStyle(
-                            fontSize: 13, color: this.widget.appSloganColor),
-                      )
-                    ],
-                  )
-                ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        CircleAvatar(
+                          radius: 60,
+                          backgroundImage: AssetImage(this.widget.appLogoAsset),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8.0, bottom: 2),
+                          child: Text(
+                            this.widget.appName,
+                            style: TextStyle(
+                                color: this.widget.appNameColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
+                        ),
+                        Text(
+                          this.widget.appSlogan,
+                          style: TextStyle(
+                              fontSize: 13, color: this.widget.appSloganColor),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-            this._getListTiles(beforeDivider: true),
-            Divider(),
-            this._getListTiles(beforeDivider: false)
-          ],
+              this._getListTiles(beforeDivider: true),
+              Divider(
+                color: this.widget.dividerColor,
+              ),
+              this._getListTiles(beforeDivider: false)
+            ],
+          ),
         ),
       ),
     );
